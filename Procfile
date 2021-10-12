@@ -1,0 +1,1 @@
+web: gunicorn comfi.wsgi:application --log-file -
