@@ -25,7 +25,14 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'rope'
+    'rope',
+
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'crispy_forms',
+    'django_countries',
 ]
 
 MIDDLEWARE = [
@@ -43,7 +50,7 @@ ROOT_URLCONF = 'comfi.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -108,8 +115,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media_root')
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'allauth.account.auth_backends.AuthenticationBackend'
+)
+SITE_ID = 1
+LOGIN_REDIRECT_URL = '/'
+
+# CRISPY FORMS
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
 
 django_heroku.settings(locals())
