@@ -9,7 +9,7 @@ from django.db.models import Sum
 from django.shortcuts import reverse
 from django_countries.fields import CountryField
 from PIL import Image
-
+from io import StringIO
 
 
 CATEGORY_CHOICES = (
@@ -65,12 +65,15 @@ class Item(models.Model):
         if not self.image:
             return            
 
-        super(Item, self).save()
-        image = Image.open(self.image)
-        (width, height) = image.size     
-        size = ( 400, 400)
-        image = image.resize(size, Image.ANTIALIAS)
-        image.save(self.image.path)
+        else:
+            super(Item, self).save()
+            image_file = StringIO(self.image)
+            image = Image.open(self.image)
+            (width, height) = image.size     
+            size = ( 400, 400)
+            image = image.resize(size, Image.ANTIALIAS)
+            image_file = StringIO()
+            image.save(image_file,"JPEG",quality=90)
 
     def __str__(self):
         return self.title
