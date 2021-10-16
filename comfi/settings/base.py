@@ -75,9 +75,9 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'hwxistpql',
-    'API_KEY': '694674249391556',
-    'API_SECRET': 'Xt97vr6FG8mtKAi7i6o1JANzIWU',
+    'CLOUD_NAME': config('CLOUD_NAME'),
+    'CLOUD_API_KEY': config('CLOUD_API_KEY'),
+    'API_SECRET': config('API_SECRET'),
 }
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
