@@ -5,7 +5,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(
     os.path.dirname(os.path.abspath(__file__))))
 
 
-SECRET_KEY="it5bs))q6toz-1gwf(+j+f9@rd8%_-0nx)p-2!egr*y1o51=45XXCV"
+SECRET_KEY=config("SECRET_KEY")
 
 
 INSTALLED_APPS = [
