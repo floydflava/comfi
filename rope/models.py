@@ -73,9 +73,9 @@ class Item(models.Model):
                 image.thumbnail(output_size)
                 image.save(self.image,"png",quality=90)
 
-                def __str__(self):
-                    return self.title
-        
+        def __str__(self):
+            return self.title
+
     
 
     def get_absolute_url(self):
