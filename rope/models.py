@@ -61,21 +61,21 @@ class Item(models.Model):
     def __unicode__(self):
         return "{0}".format(self.image)
 
-    def save(self):
+    def save(self,*args, kwargs):
         if not self.image:
             return            
 
         else:
-            super(Item, self).save()
-            image = Image.open(self.image)
-            (width, height) = image.size     
-            size = ( 400, 400)
-            image = image.resize(size, Image.ANTIALIAS)
-            image.save(self.image,"png",quality=90)
+            super.save(self,*args, **kwargs)
+            image = Image.open(self.image,"png")
+            if image.height > 300 or image.width >300:
+                output_size =(400, 400)    
+                image.thumbnail(output_size)
+                image.save(self.image,"png",quality=90)
 
-    def __str__(self):
-        return self.title
-    
+            def __str__(self):
+                return self.title
+        
     
 
     def get_absolute_url(self):
