@@ -66,7 +66,7 @@ class Item(models.Model):
             return            
 
         
-        super.save((Item, self))
+        super(Item, self).save()
         image = Image.open(self.image)
         (width, height) = image.size     
         size = ( 400, 400)
