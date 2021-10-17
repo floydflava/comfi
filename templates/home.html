@@ -2,6 +2,7 @@
 
 {% block content %}
   <main>
+    <div class="container-fluid">
     <div class=" col-md-12 mb-2">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
       <ol class="carousel-indicators">
@@ -30,7 +31,8 @@
       </a>
     </div>
   </div>
-    
+  </div>
+  <div class="container-fluid"> 
   <div class=" col-sm-12 ">
       <!--Section: Products v.3-->
       <section class="text-center mb-1">
@@ -40,7 +42,7 @@
           {% for item in object_list %}
           <div class="col-md-2 mb-2">
 
-            <div class="card" style="width: 13rem;">
+            <div class="card" style="max-width: 540px;">
 
               <div class="view overlay">
                 {% comment %} <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top" {% endcomment %}
@@ -76,8 +78,10 @@
           </div>
           {% endfor %}
         </div>
-
+      
+      
       </section>
+    </div>
       <!--Section: Products v.3-->
 
       <!--Pagination-->
