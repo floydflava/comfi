@@ -61,12 +61,12 @@ class Item(models.Model):
     def __unicode__(self):
         return "{0}".format(self.image)
 
-    def save(self,*args, kwargs):
+    def save(self,*args):
         if not self.image:
             return            
 
         else:
-            super.save(self,Item).save()
+            super.save(self,Item)
             image = Image.open(self.image,"png")
             if image.height > 300 or image.width >300:
                 output_size =(400, 400)    
