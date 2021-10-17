@@ -23,42 +23,17 @@
           <a class="dropdown-item" href="#">Tools</a>
         </div>
       </li>
-      <ul class="navbar-nav nav-flex-icons">
-        {% if request.user.is_authenticated %}
-        <li class="nav-item">
-          <a href="{% url 'rope:order-summary' %}" class="nav-link waves-effect">
-            <span class="badge red z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span>
-            <i class="fas fa-shopping-cart"></i>
-            <span class="clearfix d-none d-sm-inline-block"> Cart </span>
-          </a>
-        </li>
-        
-        <li class="nav-item">
-          <a class="nav-link waves-effect" href="{% url 'account_logout' %}">
-            <span class="clearfix d-none d-sm-inline-block"> Logout </span>
-          </a>
-        </li>
-        {% else %}
-        <li class="nav-item">
-          <a class="nav-link waves-effect" href="{% url 'account_login' %}">
-            <span class="clearfix d-none d-sm-inline-block"> Login </span>
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link waves-effect" href="{% url 'account_signup' %}">
-            <span class="clearfix d-none d-sm-inline-block"> Signup </span>
-          </a>
-        </li>
-        {% endif %}
-      </ul>
-      <!-- Collapse -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
       
-      <!-- Links -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse" id="navbarToggleExternalContent">
+        <div class="bg-dark p-4">
+          <h4 class="text-white">Collapsed content</h4>
+          <span class="text-muted">Toggleable via the navbar brand.</span>
+        </div>
+      </div>
+      <nav class="navbar navbar-dark bg-dark">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
         <!-- Left -->
         <ul class="navbar-nav mr-auto">
@@ -67,13 +42,38 @@
               <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">
             </div>
           </form> 
-          
-          
-          
+
         </ul>
         
         <!-- Right -->
-        
+        <ul class="navbar-nav nav-flex-icons">
+          {% if request.user.is_authenticated %}
+          <li class="nav-item">
+            <a href="{% url 'rope:order-summary' %}" class="nav-link waves-effect">
+              <span class="badge red z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span>
+              <i class="fas fa-shopping-cart"></i>
+              <span class="clearfix d-none d-sm-inline-block"> Cart </span>
+            </a>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="{% url 'account_logout' %}">
+              <span class="clearfix d-none d-sm-inline-block"> Logout </span>
+            </a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="{% url 'account_login' %}">
+              <span class="clearfix d-none d-sm-inline-block"> Login </span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link waves-effect" href="{% url 'account_signup' %}">
+              <span class="clearfix d-none d-sm-inline-block"> Signup </span>
+            </a>
+          </li>
+          {% endif %}
+        </ul>
       
       </div>
 
