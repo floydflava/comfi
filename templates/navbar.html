@@ -1,11 +1,11 @@
 {% load cart_template_tags %}
 
 @media only screen
-and (min-device-width : 320px)
-and (max-device-width : 480px) {
+      and (min-device-width : 320px)
+      and (max-device-width : 580px) {
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark scrolling-navbar">
+    
     <div class="container">
-
       <!-- Brand -->
       <a class="navbar-brand waves-effect" href="/">
         <strong class="white-text">REKAMORE</strong>
@@ -30,7 +30,7 @@ and (max-device-width : 480px) {
         aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
+      
       <!-- Links -->
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
@@ -72,11 +72,13 @@ and (max-device-width : 480px) {
           </li>
           {% endif %}
         </ul>
+      
       </div>
 
     </div>
+  }
   </nav>
 
-}
+
 
 
