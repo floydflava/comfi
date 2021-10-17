@@ -67,11 +67,11 @@ class Item(models.Model):
 
         else:
             super().save(self,*args)
-            image = Image.open(self.image.png)
+            image = Image.open(self.image,"JPEG")
             if image.height > 300 or image.width >300:
                 output_size =(400, 400)    
                 image.thumbnail(output_size)
-                image.save(self.image,"png",quality=90)
+                image.save(self.image,"JPEG",quality=90)
 
         def __str__(self):
             return self.title
