@@ -35,11 +35,11 @@
 
         <!-- Left -->
         <ul class="navbar-nav mr-auto">
-          <form class="form-inline" action="{% url 'rope:search' %}" method="get">
+          <!-- <form class="form-inline" action="{% url 'rope:search' %}" method="get">
             <div class="md-form my-0">
               <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">
             </div>
-          </form> 
+          </form>  -->
           <ul class="navbar-nav nav-flex-icons">
             {% if request.user.is_authenticated %}
             <li class="nav-item">
