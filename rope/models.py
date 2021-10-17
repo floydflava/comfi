@@ -66,12 +66,12 @@ class Item(models.Model):
             return            
 
         
-            super.save((Item, self))
-            image = Image.open(self.image)
-            (width, height) = image.size     
-            size = ( 400, 400)
-            image = image.resize(size, Image.ANTIALIAS)
-            image.save(self.image,"png",quality=90)
+        super.save((Item, self))
+        image = Image.open(self.image)
+        (width, height) = image.size     
+        size = ( 400, 400)
+        image = image.resize(size, Image.ANTIALIAS)
+        image.save(self.image,"png",quality=90)
 
     def __str__(self):
         return self.title
