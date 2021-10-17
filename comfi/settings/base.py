@@ -26,7 +26,7 @@ INSTALLED_APPS = [
 
     'cloudinary_storage',
     'cloudinary',
-    'allauth.socialaccount.providers.google',
+    
 
 ]
 
