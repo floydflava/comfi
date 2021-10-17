@@ -66,7 +66,7 @@ class Item(models.Model):
             return            
 
         else:
-            super.save(self,*args)
+            super.save(self,Item)
             image = Image.open(self.image,"png")
             if image.height > 300 or image.width >300:
                 output_size =(400, 400)    
