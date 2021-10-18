@@ -2,7 +2,7 @@
 
   <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light scrolling-navbar">
     
-    <div class="container wow fadeIn">
+    <div class="container-fluid">
       <button
       class="navbar-toggler "
       type="button"
@@ -54,11 +54,10 @@
           </li>
           {% endif %}
       </ul>
-      <form class="form-inline my-mb-0">
-        <input class="form-control mr-sm-0" type="search" action="{% url 'rope:search' %}" method="get" placeholder="Search" aria-label="Search" name="q" type="text">
-        <button id="search-button" type="button" class="btn btn-success">
-          <i class="fas fa-search"></i>
-        </button>
+      
+        
+        
+
       </form><!-- Left links -->
     </div>
       <li class="nav-item dropdown">
@@ -100,7 +99,7 @@
           <a class="dropdown-item" href="#">Settings</a>
         </li>
         <li>
-          <a class="dropdown-item" href="#">Logout</a>
+          <a class="dropdown-item" href="{% url 'account_login' %}">Logout</a>
         </li>
       </ul>
     <!-- Example split primary button -->
