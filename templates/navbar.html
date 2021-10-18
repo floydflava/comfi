@@ -13,34 +13,33 @@
         />
       </a>
       <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       
           {% if request.user.is_authenticated %}
-          <li class="nav-item">
+          <button class="btn peach-gradient">
             <a href="{% url 'rope:order-summary' %}" class="nav-link waves-effect">
               <span class="badge red z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span>
               <i class="fas fa-shopping-cart"></i>
               <span class="clearfix d-none d-sm-inline-block"> Cart </span>
             </a>
-          </li>
-          
-          <li class="nav-item">
+          </button>
+          <button type="button" class="btn-sm purple-gradient">
             <a class="nav-link waves-effect" href="{% url 'account_logout' %}">
               <span class="clearfix d-none d-sm-inline-block"> Logout </span>
             </a>
-          </li>
+          </button>
           {% else %}
-          <li class="nav-item">
+          <button class="btn-sm blue-gradient">
             <a class="nav-link waves-effect" href="{% url 'account_login' %}">
               <span class="clearfix d-none d-sm-inline-block"> Login </span>
             </a>
-          </li>
-          <li class="nav-item">
+          </button>
+          <button class="btn-sm aqua-gradient">
             <a class="nav-link waves-effect" href="{% url 'account_signup' %}">
               <span class="clearfix d-none d-sm-inline-block"> Signup </span>
             </a>
-          </li>
+          </button>
           {% endif %}
-      </ul>
+     
       <form class="form-inline my-mb-0">
         <input class="form-control mr-sm-0" type="search" action="{% url 'rope:search' %}" method="get" placeholder="Search" aria-label="Search" name="q" type="text">
         <button id="search-button" type="button" class="btn btn-success">
