@@ -25,7 +25,31 @@
           loading="lazy"
         />
       </a>
-      <div class="container-sm-8">
+      
+      <!-- Left links -->
+        <ul class="navbar-nav me-auto mb-3 mb-lg-0">
+          <!-- Left links -->
+        {% if request.user.is_authenticated %}
+        
+        <li class="nav-item col-sm-12">
+          <a class="nav-link" href="{% url 'rope:order-summary' %}">
+            <!-- <span class="badge red z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span> -->
+            <span class="badge rounded-pill badge-notification bg-danger">{{ request.user|cart_item_count }} </span>
+            <i class="fas fa-shopping-cart"></i>
+            Cart
+          </a>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'account_login' %}">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'account_signup' %}">Signup</a>
+        </li>
+        </div> 
+     {% endif %}
+    </div>
+    <div class="container-sm-1">
       <div class="input-group ">
         <a class="input-group-text text-body dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
           data-mdb-toggle="dropdown" aria-expanded="false">Categories</a>
@@ -52,33 +76,6 @@
         </button>
       </div>
       </div>
-      <!-- Left links -->
-        <ul class="navbar-nav me-auto mb-3 mb-lg-0">
-          <!-- Left links -->
-        {% if request.user.is_authenticated %}
-        
-        <li class="nav-item col-sm-12">
-          <a class="nav-link" href="{% url 'rope:order-summary' %}">
-            <!-- <span class="badge red z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span> -->
-            <span class="badge rounded-pill badge-notification bg-danger">{{ request.user|cart_item_count }} </span>
-            <i class="fas fa-shopping-cart"></i>
-            Cart
-          </a>
-        </li>
-        {% else %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'account_login' %}">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'account_signup' %}">Signup</a>
-        </li>
-        
-         
-        
-        </div> 
-     {% endif %}
-    </div>
-   
     <a
         class="dropdown-toggle d-flex align-items-center hidden-arrow"
         href="#"
