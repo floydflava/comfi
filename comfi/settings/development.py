@@ -26,7 +26,7 @@ DATABASES = {
         'NAME': 'floyddipela',
         'USER': 'floyddipela',
         'PASSWORD': '',
-        'HOST': 'localhost',
+        'HOST': '',
         'POST': '5432',
     },
         'postgresql': dj_database_url.config()
