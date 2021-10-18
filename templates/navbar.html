@@ -25,7 +25,27 @@
           loading="lazy"
         />
       </a>
-      
+      <div class="container-sm-1">
+        <div class="input-group ">
+          <a class="input-group-text text-body dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+            data-mdb-toggle="dropdown" aria-expanded="false">Categories</a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li>
+              <a class="dropdown-item" href="{% url 'rope:accessories' %}">Accessories</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'rope:phones' %}">Phone</a>
+            </li>
+            <li><a class="dropdown-item" href="#">Clothing</a></li>
+            <li><a class="dropdown-item" href="#">Footwear</a></li>
+            <li><a class="dropdown-item" href="#">Ladies</a></li>
+            <li><a class="dropdown-item" href="#">Men</a></li>
+            <li><a class="dropdown-item" href="#">New Arrivals</a></li>
+            <li><a class="dropdown-item" href="#">Sale</a></li>
+          </ul>
+          
+        </div>
+        </div>
       <!-- Left links -->
         <ul class="navbar-nav me-auto mb-3 mb-lg-0">
           <!-- Left links -->
@@ -49,33 +69,7 @@
         </div> 
      {% endif %}
     </div>
-    <div class="container-sm-1">
-      <div class="input-group ">
-        <a class="input-group-text text-body dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-          data-mdb-toggle="dropdown" aria-expanded="false">Categories</a>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <li>
-            <a class="dropdown-item" href="{% url 'rope:accessories' %}">Accessories</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="{% url 'rope:phones' %}">Phone</a>
-          </li>
-          <li><a class="dropdown-item" href="#">Clothing</a></li>
-          <li><a class="dropdown-item" href="#">Footwear</a></li>
-          <li><a class="dropdown-item" href="#">Ladies</a></li>
-          <li><a class="dropdown-item" href="#">Men</a></li>
-          <li><a class="dropdown-item" href="#">New Arrivals</a></li>
-          <li><a class="dropdown-item" href="#">Sale</a></li>
-        </ul>
-        <div class="form-outline flex-fill">
-          <input type="search" id="form1" class="form-control form-control-lg" />
-          <label class="form-label" for="form1">Enter keywords?</label>
-        </div>
-        <button type="button" class="btn btn-success">
-          <i class="fas fa-search"></i>
-        </button>
-      </div>
-      </div>
+    
     <a
         class="dropdown-toggle d-flex align-items-center hidden-arrow"
         href="#"
