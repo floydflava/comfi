@@ -26,20 +26,25 @@
                   <div class="mask rgba-white-slight"></div>
                 </a>
               </div>
-              <div class="card-body">
-                <h5 class="card-title">{{ item.title }}</h5>
-                <p class="card-text">
-                <span class="badge badge-pill badge-notification{{ item.get_label_display }} bg-danger">NEW </span>
-                  {{ item.get_category_display }}
+              <div class="card-body text-center">
+                <a href="" class="grey-text">
+                  <h5>{{ item.get_category_display }}</h5>
+                </a>
+                <p>
+                    <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.title }}
+                      <!-- <span class="badge badge-pill {{ item.get_label_display }}-color">NEW</span> -->
+                      <span class="badge badge-pill badge-notification{{ item.get_label_display }} bg-danger">NEW </span>
+                    </a>    
+                </p>
+                <p class="font-weight-bold blue-text">
                   R{% if item.discount_price %}
                   {{ item.discount_price }}
                   {% else %}
                   {{ item.price }}
                   {% endif %}
 
-                </p>
-              </div>
-                    
+              </p>
+
               </div>
 
             </div>
