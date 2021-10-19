@@ -2,7 +2,7 @@ from .base import *
 from decouple import config
 import django_heroku
 import dj_database_url
-DEBUG = True
+DEBUG = False
 
 
 
