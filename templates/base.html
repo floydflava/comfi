@@ -25,11 +25,16 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css"
     rel="stylesheet"
   />
+  
 </head>
 
 {% include "navbar.html" %}
 
 <body>
+  <div class="bg-image" 
+     style="background-image: url('https://mdbootstrap.com/img/Photos/Others/images/76.jpg');
+            height: 100vh">
+  
 
     <div class="mt-5 pt-4">
     {% if messages %}
@@ -49,7 +54,7 @@
 
     {% block extra_body %}
     {% endblock %}
-
+  </div>
     {% include "footer.html" %}
     {% include "scripts.html" %}
 
