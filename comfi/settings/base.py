@@ -81,7 +81,6 @@ CLOUDINARY_STORAGE = {
     'CLOUD_API_KEY': config('CLOUD_API_KEY'),
     'API_SECRET': config('API_SECRET'),
 }
-DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_in_env')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
