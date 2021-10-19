@@ -74,10 +74,7 @@
     
     </div>
     {% if request.user.is_authenticated %}
-    <div class="d-flex align-items-center">
-
- 
-   
+  
     <a
         class="dropdown-toggle d-flex align-items-center hidden-arrow "
         href="#"
@@ -107,15 +104,8 @@
           <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
         </li>
       </ul>
-      
-
-    
-  
     <!-- Example split primary button -->
       {% endif %}
-</div>
- 
-  
         <!-- Right -->
         <ul class="navbar-nav nav-flex-icons">
           
