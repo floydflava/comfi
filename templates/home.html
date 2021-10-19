@@ -34,12 +34,12 @@
                       <span class="badge badge-pill badge-notification{{ item.get_label_display }} bg-danger">NEW </span>
                     </a>    
                 </p>
-                <p class="font-weight-bold blue-text">
+                <p class="gray-text">
                   {% if item.discount_price %}
                   <p class="mr-1">
-                    <del>WAS R{{ item.price }}   </del>
+                    <del><strong>R{{ item.price }}</strong></del>
                   </p>
-                  <p>NOW R{{ item.discount_price }}</p>
+                  <p><strong>R{{ item.discount_price }}</strong></p>
                   {% else %}
                   <span>R{{ item.price }}</span>
                   {% endif %}
