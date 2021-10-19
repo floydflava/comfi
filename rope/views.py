@@ -420,7 +420,7 @@ def add_to_cart(request, slug):
         if order.items.filter(item__slug=item.slug).exists():
             order_item.quantity += 1
             order_item.save()
-            messages.info(request, "This item quantity was updated.")
+            # messages.info(request, "This item quantity was updated.")
             return redirect("rope:order-summary")
         else:
             order.items.add(order_item)
@@ -431,7 +431,7 @@ def add_to_cart(request, slug):
         order = Order.objects.create(
             user=request.user, ordered_date=ordered_date)
         order.items.add(order_item)
-        messages.info(request, "This item was added to your cart.")
+        # messages.info(request, "This item was added to your cart.")
         return redirect("rope:order-summary")
 
 
@@ -484,7 +484,7 @@ def remove_single_item_from_cart(request, slug):
                 order_item.save()
             else:
                 order.items.remove(order_item)
-            messages.info(request, "This item quantity was updated.")
+            # messages.info(request, "This item quantity was updated.")
             return redirect("rope:order-summary")
         else:
             messages.info(request, "This item was not in your cart")
