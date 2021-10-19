@@ -14,30 +14,34 @@
 
           {% for item in object_list %}
           
-            <div class="col-md-2 mb-2">
-              
-              <div class="card" style="max-width: 500px;">
-                <img
-                  src="{{ item.image.url }}"
-                  class="card-img-top"
-                  alt="..."
-                />
-                <div class="card-body">
-                  <h5 class="card-title">{{ item.title }}</h5>
-                  <p class="card-text">
-                  <span class="badge badge-pill badge-notification{{ item.get_label_display }} bg-danger">NEW </span>
-                    {{ item.get_category_display }}
-                    R{% if item.discount_price %}
-                    {{ item.discount_price }}
-                    {% else %}
-                    {{ item.price }}
-                    {% endif %}
+            
+          <div class="col-md-2 mb-2">
 
-                  </p>
-                </div>
+            <div class="card" style="max-width: 500px;">
+
+              <div class="view overlay">
+                {% comment %} <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top" {% endcomment %}
+                <img src="{{ item.image.url }}" class="card-img-top">
+                <a href="{{ item.get_absolute_url }}">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
               </div>
-            </div>
-          
+              <div class="card-body">
+                <h5 class="card-title">{{ item.title }}</h5>
+                <p class="card-text">
+                <span class="badge badge-pill badge-notification{{ item.get_label_display }} bg-danger">NEW </span>
+                  {{ item.get_category_display }}
+                  R{% if item.discount_price %}
+                  {{ item.discount_price }}
+                  {% else %}
+                  {{ item.price }}
+                  {% endif %}
+
+                </p>
+              </div>
+                    
+              </div>
+
             </div>
 
           </div>
