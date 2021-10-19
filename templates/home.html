@@ -35,13 +35,13 @@
                     </a>    
                 </p>
                 <p class="font-weight-bold blue-text">
-                  {% if object.discount_price %}
+                  {% if item.discount_price %}
                   <span class="mr-1">
-                    <del>R{{ object.price }}</del>
+                    <del>R{{ item.price }}</del>
                   </span>
-                  <span>R{{ object.discount_price }}</span>
+                  <span>R{{ item.discount_price }}</span>
                   {% else %}
-                  <span>R{{ object.price }}</span>
+                  <span>R{{ item.price }}</span>
                   {% endif %}
               </p>
 
