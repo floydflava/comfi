@@ -350,7 +350,7 @@ class PaymentView(View):
 
 class HomeView(ListView):
     model = Item
-    queryset = Item.objects.filter(label='D').order_by('-id')[0]  
+    queryset = Item.objects.filter(label='D').order_by('-id')  
     paginate_by = 16
     template_name = "home.html"
    
