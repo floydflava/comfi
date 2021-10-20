@@ -2,9 +2,8 @@ from .base import *
 from decouple import config
 import django_heroku
 import dj_database_url
-DEBUG = False
 
-
+DEBUG = True
 
 # ALLOWED_HOSTS = ['ip-address','0.0.0.0', 'hevitall.herokuapp.com']
 ALLOWED_HOSTS = ['*']
