@@ -200,6 +200,8 @@ class CheckoutView(View):
                     return redirect('rope:payment', payment_option='stripe')
                 elif payment_option == 'P':
                     return redirect('rope:payment', payment_option='paypal')
+                elif payment_option == 'C':
+                    return redirect('rope:payment', payment_option='cash')
                 else:
                     messages.warning(
                         self.request, "Invalid payment option selected")
@@ -356,7 +358,7 @@ class HomeView(ListView):
    
 class PhoneView(ListView):
     model = Item
-    queryset = Item.objects.filter(category='P')    
+    queryset = Item.objects.filter(category='P').order_by('-id')    
     paginate_by = 16
     template_name = "phones.html"
 
@@ -370,7 +372,7 @@ class SearchView(ListView):
         
             object_list = Item.objects.filter(
                 Q(slug__icontains=query) | Q(category__icontains=query) | Q(description__icontains=query) | Q(price__icontains=query) 
-            )
+            ).order_by('-id')
             if object_list == '':
                 messages.warning(self.request, "No search result found")
             else:
@@ -381,7 +383,7 @@ class SearchView(ListView):
 
 class Accessories(ListView):
     model = Item
-    queryset = Item.objects.filter(category='A')
+    queryset = Item.objects.filter(category='A').order_by('-id')
     paginate_by = 16
     template_name = "accessories.html"
 
