@@ -218,13 +218,13 @@ class PaymentView(View):
             context = {
                 'order': order,
                 'DISPLAY_COUPON_FORM': False,
-                'STRIPE_PUBLIC_KEY' : settings.STRIPE_PUBLIC_KEY
+                # 'STRIPE_PUBLIC_KEY' : settings.STRIPE_PUBLIC_KEY
             }
             userprofile = self.request.user.userprofile
             if userprofile.one_click_purchasing:
                 # fetch the users card list
                 cards = stripe.Customer.list_sources(
-                    userprofile.stripe_customer_id,
+                    userprofile,
                     limit=3,
                     object='card'
                 )
@@ -245,22 +245,22 @@ class PaymentView(View):
         form = PaymentForm(self.request.POST)
         userprofile = UserProfile.objects.get(user=self.request.user)
         if form.is_valid():
-            token = form.cleaned_data.get('stripeToken')
+            # token = form.cleaned_data.get('stripeToken')
             save = form.cleaned_data.get('save')
             use_default = form.cleaned_data.get('use_default')
 
             if save:
-                if userprofile.stripe_customer_id != '' and userprofile.stripe_customer_id is not None:
+                if userprofile != '':
                     customer = stripe.Customer.retrieve(
                         userprofile.stripe_customer_id)
-                    customer.sources.create(source=token)
+                    # customer.sources.create(source=token)
 
                 else:
                     customer = stripe.Customer.create(
                         email=self.request.user.email,
                     )
-                    customer.sources.create(source=token)
-                    userprofile.stripe_customer_id = customer['id']
+                    # customer.sources.create(source=token)
+                    userprofile = customer['id']
                     userprofile.one_click_purchasing = True
                     userprofile.save()
 
@@ -273,19 +273,19 @@ class PaymentView(View):
                     charge = stripe.Charge.create(
                         amount=amount,  # cents
                         currency="usd",
-                        customer=userprofile.stripe_customer_id
+                        customer=userprofile
                     )
                 else:
                     # charge once off on the token
                     charge = stripe.Charge.create(
                         amount=amount,  # cents
                         currency="usd",
-                        source=token
+                        # source=token
                     )
 
                 # create the payment
                 payment = Payment()
-                payment.stripe_charge_id = charge['id']
+                # payment.stripe_charge_id = charge['id']
                 payment.user = self.request.user
                 payment.amount = order.get_total()
                 payment.save()
