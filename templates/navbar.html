@@ -5,7 +5,18 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid justify-content-between">
     <!-- Left elements -->
-    
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <div class="d-flex">
       <!-- Brand -->
       <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
@@ -20,18 +31,7 @@
 
       <!-- Search form -->
       
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-mdb-toggle="collapse"
-      data-mdb-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <i class="fas fa-bars"></i>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    
     <!-- Collapsible wrapper -->
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
       <li class="nav-item me-3 me-lg-1 active">
@@ -63,6 +63,28 @@
       </li>
       {% endif %}
     </ul>
+
+    <div class="container-sm-1">
+      <div class="input-group ">
+        <a class="input-group-text text-body dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+          data-mdb-toggle="dropdown" aria-expanded="false">Categories</a>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li>
+            <a class="dropdown-item" href="{% url 'rope:accessories' %}">Accessories</a>
+          </li>
+          <li>
+            <a class="dropdown-item" href="{% url 'rope:phones' %}">Phone</a>
+          </li>
+          <li><a class="dropdown-item" href="#">Clothing</a></li>
+          <li><a class="dropdown-item" href="#">Footwear</a></li>
+          <li><a class="dropdown-item" href="#">Ladies</a></li>
+          <li><a class="dropdown-item" href="#">Men</a></li>
+          <li><a class="dropdown-item" href="#">New Arrivals</a></li>
+          <li><a class="dropdown-item" href="#">Sale</a></li>
+        </ul>
+        
+      </div>
+    </div>
     </div>
   </div>
       
@@ -73,27 +95,7 @@
 
     <!-- Center elements -->
    
-      <div class="container-sm-1">
-        <div class="input-group ">
-          <a class="input-group-text text-body dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-            data-mdb-toggle="dropdown" aria-expanded="false">Categories</a>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <li>
-              <a class="dropdown-item" href="{% url 'rope:accessories' %}">Accessories</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="{% url 'rope:phones' %}">Phone</a>
-            </li>
-            <li><a class="dropdown-item" href="#">Clothing</a></li>
-            <li><a class="dropdown-item" href="#">Footwear</a></li>
-            <li><a class="dropdown-item" href="#">Ladies</a></li>
-            <li><a class="dropdown-item" href="#">Men</a></li>
-            <li><a class="dropdown-item" href="#">New Arrivals</a></li>
-            <li><a class="dropdown-item" href="#">Sale</a></li>
-          </ul>
-          
-        </div>
-      </div>
+     
     <form class="input-group w-auto my-auto d-none d-sm-flex">
       <input
         autocomplete="off"
