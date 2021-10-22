@@ -7,7 +7,7 @@ PAYMENT_CHOICES = (
     ('S', 'Stripe'),
     ('P', 'PayPal'),
     ('C', 'cash')
-)   
+)       
 
 
 class CheckoutForm(forms.Form):
