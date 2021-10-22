@@ -17,16 +17,7 @@
       <i class="fas fa-bars"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <div class="d-flex">
-      <!-- Brand -->
-      <a class="navbar-brand me-2 mb-1 d-flex align-items-center" href="#">
-        <img
-          src="https://mdbootstrap.com/img/logo/mdb-transaprent-noshadows.png"
-          height="20"
-          alt=""
-          loading="lazy"
-          style="margin-top: 2px;"
-        />
+    
       </a>
 
       <!-- Search form -->
@@ -34,7 +25,9 @@
     
     <!-- Collapsible wrapper -->
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-      <li class="nav-item me-3 me-lg-1 active">
+     
+        
+      <li class="nav-item me-3 me-lg-1">
         <a class="nav-link" href="/">
           <span><i class="fas fa-home fa-lg"></i></span>
           <!-- <span class="badge rounded-pill badge-notification bg-danger">1</span> -->
@@ -62,29 +55,30 @@
         </a>
       </li>
       {% endif %}
+      <div class="container-sm-1">
+        <div class="input-group ">
+          <a class="input-group-text text-body dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
+            data-mdb-toggle="dropdown" aria-expanded="false">Categories</a>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li>
+              <a class="dropdown-item" href="{% url 'rope:accessories' %}">Accessories</a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'rope:phones' %}">Phone</a>
+            </li>
+            <li><a class="dropdown-item" href="#">Clothing</a></li>
+            <li><a class="dropdown-item" href="#">Footwear</a></li>
+            <li><a class="dropdown-item" href="#">Ladies</a></li>
+            <li><a class="dropdown-item" href="#">Men</a></li>
+            <li><a class="dropdown-item" href="#">New Arrivals</a></li>
+            <li><a class="dropdown-item" href="#">Sale</a></li>
+          </ul>
+          
+        </div>
+      </div>
     </ul>
 
-    <div class="container-sm-1">
-      <div class="input-group ">
-        <a class="input-group-text text-body dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-          data-mdb-toggle="dropdown" aria-expanded="false">Categories</a>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-          <li>
-            <a class="dropdown-item" href="{% url 'rope:accessories' %}">Accessories</a>
-          </li>
-          <li>
-            <a class="dropdown-item" href="{% url 'rope:phones' %}">Phone</a>
-          </li>
-          <li><a class="dropdown-item" href="#">Clothing</a></li>
-          <li><a class="dropdown-item" href="#">Footwear</a></li>
-          <li><a class="dropdown-item" href="#">Ladies</a></li>
-          <li><a class="dropdown-item" href="#">Men</a></li>
-          <li><a class="dropdown-item" href="#">New Arrivals</a></li>
-          <li><a class="dropdown-item" href="#">Sale</a></li>
-        </ul>
-        
-      </div>
-    </div>
+    
     </div>
   </div>
       
