@@ -19,18 +19,7 @@
       </a>
 
       <!-- Search form -->
-      <form class="input-group w-auto my-auto d-none d-sm-flex">
-        <input
-          autocomplete="off"
-          type="search"
-          class="form-control rounded"
-          placeholder="Search"
-          style="min-width: 125px;"
-        />
-        <span class="input-group-text border-0 d-none d-lg-flex"
-          ><i class="fas fa-search"></i
-        ></span>
-      </form>
+      
     <button
       class="navbar-toggler"
       type="button"
@@ -44,6 +33,44 @@
     </button>
 
     <!-- Collapsible wrapper -->
+    <ul class="navbar-nav flex-row d-none d-md-flex">
+      <li class="nav-item me-3 me-lg-1 active">
+        <a class="nav-link" href="/">
+          <span><i class="fas fa-home fa-lg"></i></span>
+          <!-- <span class="badge rounded-pill badge-notification bg-danger">1</span> -->
+        </a>
+      </li>
+      {% if request.user.is_authenticated %}
+      <li class="nav-item me-3 me-lg-1">
+        <a class="nav-link" href="{% url 'rope:order-summary' %}">
+          <!-- <span class="badge red z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span> -->
+          <span class="badge rounded-pill badge-notification bg-danger">{{ request.user|cart_item_count }} </span>
+          <i class="fas fa-shopping-cart"></i>
+          Cart
+        </a>
+      </li>
+      {% else %}
+      <li class="nav-item me-3 me-lg-1">
+        <a class="nav-link" href="{% url 'account_login' %}">Login
+          <span><i class="fas fa-sign-in-alt"></i></span>
+        </a>
+      </li>
+
+      <li class="nav-item me-3 me-lg-1">
+        <a class="nav-link" href="{% url 'account_signup' %}">Signup
+          <span><i class="fas fa-user-plus"></i></span>
+        </a>
+      </li>
+      {% endif %}
+    </ul>
+    </div>
+      
+
+    </div>
+  </div>
+    <!-- Left elements -->
+
+    <!-- Center elements -->
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <div class="container-sm-1">
         <div class="input-group ">
@@ -66,45 +93,18 @@
           
         </div>
       </div>
-    </div>
-      <ul class="navbar-nav flex-row d-none d-md-flex">
-        <li class="nav-item me-3 me-lg-1 active">
-          <a class="nav-link" href="/">
-            <span><i class="fas fa-home fa-lg"></i></span>
-            <!-- <span class="badge rounded-pill badge-notification bg-danger">1</span> -->
-          </a>
-        </li>
-        {% if request.user.is_authenticated %}
-        <li class="nav-item me-3 me-lg-1">
-          <a class="nav-link" href="{% url 'rope:order-summary' %}">
-            <!-- <span class="badge red z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span> -->
-            <span class="badge rounded-pill badge-notification bg-danger">{{ request.user|cart_item_count }} </span>
-            <i class="fas fa-shopping-cart"></i>
-            Cart
-          </a>
-        </li>
-        {% else %}
-        <li class="nav-item me-3 me-lg-1">
-          <a class="nav-link" href="{% url 'account_login' %}">Login
-            <span><i class="fas fa-sign-in-alt"></i></span>
-          </a>
-        </li>
-  
-        <li class="nav-item me-3 me-lg-1">
-          <a class="nav-link" href="{% url 'account_signup' %}">Signup
-            <span><i class="fas fa-user-plus"></i></span>
-          </a>
-        </li>
-        {% endif %}
-      </ul>
-
-    </div>
-  </div>
-    <!-- Left elements -->
-
-    <!-- Center elements -->
-    
-
+    <form class="input-group w-auto my-auto d-none d-sm-flex">
+      <input
+        autocomplete="off"
+        type="search"
+        class="form-control rounded"
+        placeholder="Search"
+        style="min-width: 125px;"
+      />
+      <span class="input-group-text border-0 d-none d-lg-flex"
+        ><i class="fas fa-search"></i
+      ></span>
+    </form>
 
     
     <!-- Center elements -->
