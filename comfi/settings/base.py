@@ -26,6 +26,8 @@ INSTALLED_APPS = [
 
     'cloudinary_storage',
     'cloudinary',
+    'allauth.socialaccount.providers.vk',  # if you need VK api
+    'allauth.socialaccount.providers.facebook',  # if you need FB api
     
 
 ]
@@ -70,6 +72,49 @@ TIME_ZONE = 'UTC'
 USE_I18N = True
 USE_L10N = True
 USE_TZ = True
+
+# Provider specific settings
+SOCIALACCOUNT_PROVIDERS = {
+    
+     'facebook':
+        {
+         'METHOD': 'oauth2',
+         'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
+         'SCOPE': ['email', 'public_profile'],
+         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+         'INIT_PARAMS': {'cookie': True},
+         'FIELDS': [
+             'id',
+             'first_name',
+             'last_name',
+             'name',
+             'name_format',
+             'picture',
+             'short_name'
+         ],
+         'EXCHANGE_TOKEN': True,
+         'LOCALE_FUNC': lambda request: 'ru_RU',
+         'VERIFIED_EMAIL': False,
+         'VERSION': 'v7.0',
+         # you should fill in 'APP' only if you don't create a Facebook instance at /admin/socialaccount/socialapp/
+         'APP': {
+             'client_id': 'App ID',  # !!! THIS App ID
+             'secret': 'App Secret',  # !!! THIS App Secret
+             'key': ''
+                }
+         }
+}
+
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False # a personal preference. True by default. I don't want users to be interrupted by logging in
+ACCOUNT_AUTHENTICATION_METHOD = 'email'  # a personal preference. I don't want to add 'i don't remember my username' like they did at Nintendo, it's stupid
+
+ACCOUNT_LOGIN_ON_PASSWORD_RESET = True  # False by default
+ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True  # True by default
+# ACCOUNT_LOGOUT_REDIRECT_URL = '/login'
+ACCOUNT_USERNAME_BLACKLIST = ['suka', 'blyat',]  # :D
+ACCOUNT_USERNAME_MIN_LENGTH = 4  # a personal preference
+ACCOUNT_SESSION_REMEMBER = True  # None by default (to ask 'Remember me?'). I want the user to be always logged in
+
 
 # Static files (CSS, JavaScript, Images)
 

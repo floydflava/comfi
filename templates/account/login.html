@@ -47,6 +47,11 @@
             <button class="btn btn-primary" type="submit">{% trans "Sign In" %}</button>
           </form>
           </div>
+          {% if user.is_authenticated %}
+              Hello, {{ user.username }}. <a href='/logout'>Logout</a>
+            {% else %}
+                <a href="{% provider_login_url 'facebook' %}">Login or Sign Up</a>
+            {% endif %}
         </div>
       </section>
     </div>
