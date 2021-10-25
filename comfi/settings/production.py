@@ -5,8 +5,8 @@ import dj_database_url
 
 DEBUG = True
 
-# ALLOWED_HOSTS = ['ip-address','0.0.0.0', 'hevitall.herokuapp.com']
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['ip-address','0.0.0.0', 'comfiapp.herokuapp.com']
+# ALLOWED_HOSTS = ['*']
 
 AUTH_PASSWORD_VALIDATORS = [
     {'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator'},
