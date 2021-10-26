@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'cloudinary',
     # 'allauth.socialaccount.providers.vk',  # if you need VK api
     'allauth.socialaccount.providers.facebook', # if you need FB api
-    'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.google',
     
 
 ]

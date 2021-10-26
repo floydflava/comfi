@@ -19,16 +19,20 @@
           <p>{% blocktrans with site.name as site_name %}Please sign in with one
           of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
           for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+          <div class="d-grid gap-2 col-6 mx-auto">
 
-          <div class="socialaccount_ballot">
-
-            <ul class="socialaccount_providers">
-              {% include "socialaccount/snippets/provider_list.html" with process="login" %}
-            </ul>
-
-            <div class="login-or">{% trans 'or' %}</div>
-
+          <button type="button"  class="btn btn-success me-3 fs-5" href="socialaccount/snippets/provider_list.html" with process="login">
+            
+            {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+            
+          </button>
           </div>
+          </ul>
+
+          <div class="login-or">{% trans 'or' %}</div>
+
+          
+          
 
           {% include "socialaccount/snippets/login_extra.html" %}
 
