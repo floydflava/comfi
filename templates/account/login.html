@@ -19,8 +19,6 @@
           <p>{% blocktrans with site.name as site_name %}Please sign in with one
           of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
           for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
-
-          
             <div class="d-grid gap-2 col-6 mx-auto">
               <button class="btn btn-primary" type="button">
                 <a href="{% provider_login_url 'facebook' %}">
@@ -29,10 +27,7 @@
                 <i class="fab fa-facebook"></i>  
                 Login With Facebook</button>
             </div>
-          </div>
-
-            
-          
+        
           </ul>
 
           <div class="login-or">{% trans 'or' %}</div>
