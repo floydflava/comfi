@@ -20,9 +20,7 @@
           of your existing third party accounts. Or, <a href="{{ signup_url }}">sign up</a>
           for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
 
-          <p>
-          <!-- <p>{% include "socialaccount/snippets/provider_list.html" with process="login" %} -->
-
+          
             <div class="d-grid gap-2 col-6 mx-auto">
               <button class="btn btn-primary" type="button">
                 <a href="{% provider_login_url 'facebook' %}">
@@ -31,9 +29,9 @@
                 <i class="fab fa-facebook"></i>  
                 Login With Facebook</button>
             </div>
-            </div>
+          </div>
 
-          </p>   
+            
           
           </ul>
 
