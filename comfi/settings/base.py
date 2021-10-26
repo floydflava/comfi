@@ -27,7 +27,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'cloudinary',
     'allauth.socialaccount.providers.vk',  # if you need VK api
-    'allauth.socialaccount.providers.facebook',  # if you need FB api
+    # 'allauth.socialaccount.providers.facebook',  # if you need FB api
     'allauth.socialaccount.providers.google',
     
 
@@ -75,32 +75,32 @@ USE_L10N = True
 USE_TZ = True
 
 # Provider specific settings
-SOCIALACCOUNT_PROVIDERS = {
+# SOCIALACCOUNT_PROVIDERS = {
     
-     'facebook':
-        {
-         'METHOD': 'oauth2',
-         'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
-         'SCOPE': ['email', 'public_profile'],
-         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
-         'INIT_PARAMS': {'cookie': True},
-         'FIELDS': [
-             'id',
-             'first_name',
-             'last_name',
-             'name',
-             'name_format',
-             'picture',
-             'short_name'
-         ],
-         'EXCHANGE_TOKEN': True,
-         'LOCALE_FUNC': lambda request: 'ru_RU',
-         'VERIFIED_EMAIL': False,
-         'VERSION': 'v7.0',
-        #  you should fill in 'APP' only if you don't create a Facebook instance at /admin/socialaccount/socialapp/
+#      'facebook':
+#         {
+#          'METHOD': 'oauth2',
+#          'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
+#          'SCOPE': ['email', 'public_profile'],
+#          'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+#          'INIT_PARAMS': {'cookie': True},
+#          'FIELDS': [
+#              'id',
+#              'first_name',
+#              'last_name',
+#              'name',
+#              'name_format',
+#              'picture',
+#              'short_name'
+#          ],
+#          'EXCHANGE_TOKEN': True,
+#          'LOCALE_FUNC': lambda request: 'ru_RU',
+#          'VERIFIED_EMAIL': False,
+#          'VERSION': 'v7.0',
+#         #  you should fill in 'APP' only if you don't create a Facebook instance at /admin/socialaccount/socialapp/
          
-         }
-}
+#          }
+# }
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
