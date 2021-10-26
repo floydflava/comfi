@@ -26,8 +26,9 @@ INSTALLED_APPS = [
 
     'cloudinary_storage',
     'cloudinary',
-    'allauth.socialaccount.providers.vk',  # if you need VK api
-    'allauth.socialaccount.providers.facebook',  # if you need FB api
+    # 'allauth.socialaccount.providers.vk',  # if you need VK api
+    'allauth.socialaccount.providers.facebook', # if you need FB api
+    'allauth.socialaccount.providers.google',
     
 
 ]
@@ -100,6 +101,36 @@ SOCIALACCOUNT_PROVIDERS = {
          'APP': {
              'client_id': '834810577213058',  # !!! THIS App ID
              'secret': '8499919a6c473d1192c50603203af535',  # !!! THIS App Secret
+             'key': ''
+                }
+         }
+}
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google':
+     
+        {
+         
+         'SCOPE': ['email', 'profile'],
+         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+         'INIT_PARAMS': {'cookie': True},
+         'FIELDS': [
+             'id',
+             'first_name',
+             'last_name',
+             'name',
+             'name_format',
+             'picture',
+             'short_name'
+         ],
+         'EXCHANGE_TOKEN': True,
+         'LOCALE_FUNC': lambda request: 'ru_RU',
+         'VERIFIED_EMAIL': False,
+         'VERSION': 'v7.0',
+         # you should fill in 'APP' only if you don't create a Facebook instance at /admin/socialaccount/socialapp/
+         'APP': {
+             'client_id': '320992521656-3okhuvq2id6unqeecal0m422pq3uq037.apps.googleusercontent.com',  # !!! THIS App ID
+             'secret': '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',  # !!! THIS App Secret
              'key': ''
                 }
          }
