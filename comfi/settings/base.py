@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'cloudinary',
     # 'allauth.socialaccount.providers.vk',  # if you need VK api
     # 'allauth.socialaccount.providers.facebook',  # if you need FB api
-    # 'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.google',
     
 
 ]
@@ -106,17 +106,17 @@ USE_TZ = True
 #          }
 # }
 
-# SOCIALACCOUNT_PROVIDERS = {
-#     'google': {
-#         'SCOPE': [
-#             'profile',
-#             'email',
-#         ],
-#         'AUTH_PARAMS': {
-#             'access_type': 'online',
-#         }
-#     }
-# }
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        }
+    }
+}
 # SOCIALACCOUNT_QUERY_EMAIL = True
 # ACCOUNT_LOGOUT_ON_GET= True
 # ACCOUNT_UNIQUE_EMAIL = True
