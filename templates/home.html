@@ -15,10 +15,12 @@
           {% for item in object_list %}
           <div class="col-md-2 raw-mb-2">
 
-            <div class="card" style="max-width: 500px;">
 
-              <div class="view overlay">
+            <div class="card text-center border border-info shadow-0 " style="max-width: 380px;">
+
+              <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                 {% comment %} <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top" {% endcomment %}
+                <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
                 <img src="{{ item.image.url }}" class="card-img-top">
                 <a href="{{ item.get_absolute_url }}">
                   <div class="mask rgba-white-slight"></div>
@@ -44,7 +46,12 @@
                   <span>R{{ item.price }}</span>
                   {% endif %}
               </p>
-
+              
+              <button type="button" class="btn btn-primary" >
+                <a href="{{ item.get_absolute_url }}">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+                Start Order</button>
               </div>
 
             </div>
