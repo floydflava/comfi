@@ -1,5 +1,6 @@
 {% extends "account/base.html" %}
 {% load i18n %}
+{% load account socialaccount %}
 {% load crispy_forms_tags %}
 
 {% block head_title %}{% trans "Signup" %}{% endblock %}
@@ -11,7 +12,23 @@
         <div class="row wow fadeIn">
           <div class='col-6 offset-3'>
             <h1>{% trans "Sign Up" %}</h1>
+            {% get_providers as socialaccount_providers %}
+
+            {% if socialaccount_providers %}
             <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+          
+            <p>
+            <div class="d-grid gap-2 col-6 mx-auto">
+              <button class="btn btn-primary" type="button">
+                <a href="{% provider_login_url 'facebook' %}">
+                  <div class="mask rgba-white-slight"></div>
+                </a>
+                <i class="fab fa-facebook"></i>  
+                Signup With Facebook
+              </button>
+            
+            </div>
+            </p>
             <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
               {% csrf_token %}
               {{ form|crispy }}
@@ -20,6 +37,7 @@
               {% endif %}
               <button class='btn btn-primary' type="submit">{% trans "Sign Up" %} &raquo;</button>
             </form>
+            {% endif %}
           </div>
         </div>
       </section>
