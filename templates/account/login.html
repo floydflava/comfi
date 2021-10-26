@@ -53,8 +53,8 @@
       {% if user.is_authenticated %}
         Hello, {{ user.username }}. <a href='/logout'>Logout</a>
       {% else %}
-          <p><a href="{% provider_login_url 'facebook' method="js_sdk" %}">Facebook</a></p>  # This with JS SDK
-          <p><a href="{% provider_login_url "facebook" method="oauth2" %}">Facebook OAuth2</a></p>  # Or this with OAuth2
+          <p><a href="{% provider_login_url 'facebook'%}">Facebook</a></p>  # This with JS SDK
+          <a href="{% provider_login_url 'google' %}">Login with Google</a>
       {% endif %}
     </div>
   </main>
