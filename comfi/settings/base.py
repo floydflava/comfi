@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'cloudinary',
     # 'allauth.socialaccount.providers.vk',  # if you need VK api
     'allauth.socialaccount.providers.facebook', # if you need FB api
-    # 'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.google',
     
 
 ]
@@ -106,36 +106,7 @@ SOCIALACCOUNT_PROVIDERS = {
          }
 }
 
-# SOCIALACCOUNT_PROVIDERS = {
-#     'google':
-     
-#         {
-         
-#          'SCOPE': ['email', 'profile'],
-#          'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
-#          'INIT_PARAMS': {'cookie': True},
-#          'FIELDS': [
-#              'id',
-#              'first_name',
-#              'last_name',
-#              'name',
-#              'name_format',
-#              'picture',
-#              'short_name'
-#          ],
-#          'EXCHANGE_TOKEN': True,
-#          'LOCALE_FUNC': lambda request: 'ru_RU',
-#          'VERIFIED_EMAIL': False,
-#          'VERSION': 'v7.0',
-#          # you should fill in 'APP' only if you don't create a Facebook instance at /admin/socialaccount/socialapp/
-#          'APP': {
-#              'client_id': '320992521656-3okhuvq2id6unqeecal0m422pq3uq037.apps.googleusercontent.com',  # !!! THIS App ID
-#              'secret': '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',  # !!! THIS App Secret
-#              'key': ''
-#                 }
-#          }
-# }
-
+SITE_ID = 1
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False # a personal preference. True by default. I don't want users to be interrupted by logging in
 # ACCOUNT_AUTHENTICATION_METHOD = 'email'  # a personal preference. I don't want to add 'i don't remember my username' like they did at Nintendo, it's stupid
 
@@ -146,6 +117,45 @@ ACCOUNT_USERNAME_BLACKLIST = ['suka', 'blyat',]  # :D
 ACCOUNT_USERNAME_MIN_LENGTH = 4  # a personal preference
 ACCOUNT_SESSION_REMEMBER = True  # None by default (to ask 'Remember me?'). I want the user to be always logged in
 
+
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google':
+     
+        {
+         
+         'SCOPE': ['email', 'profile'],
+         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+         'INIT_PARAMS': {'cookie': True},
+         'FIELDS': [
+             'id',
+             'first_name',
+             'last_name',
+             'name',
+             'name_format',
+             'picture',
+             'short_name'
+         ],
+         'EXCHANGE_TOKEN': True,
+         'LOCALE_FUNC': lambda request: 'ru_RU',
+         'VERIFIED_EMAIL': False,
+         'VERSION': 'v7.0',
+         # you should fill in 'APP' only if you don't create a Facebook instance at /admin/socialaccount/socialapp/
+         'APP': {
+             'client_id': '320992521656-3okhuvq2id6unqeecal0m422pq3uq037.apps.googleusercontent.com',  # !!! THIS App ID
+             'secret': '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',  # !!! THIS App Secret
+             'key': ''
+                }
+         }
+}
+SITE_ID = 2
+LOGIN_REDIRECT_URL = '/'
+
+# Additional configuration settings
+SOCIALACCOUNT_QUERY_EMAIL = True
+ACCOUNT_LOGOUT_ON_GET= True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_EMAIL_REQUIRED = True
 
 # Static files (CSS, JavaScript, Images)
 
@@ -168,7 +178,7 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend'
 )
-SITE_ID = 1
+
 ACCOUNT_EMAIL_VERIFICATION = "none"
 LOGIN_REDIRECT_URL = '/'
 
