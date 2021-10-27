@@ -271,7 +271,7 @@ class PaymentView(View):
             order.save()
 
             messages.success(self.request, "Your order was successful!")
-            return redirect("/")
+            return redirect("rope:ordersuccessful")
 
         
 
@@ -311,6 +311,11 @@ class Accessories(ListView):
     queryset = Item.objects.filter(category='A').order_by('-id')
     paginate_by = 16
     template_name = "accessories.html"
+class OrderSuccessful(ListView):
+    model = Item
+    queryset = Item.objects.filter(category='A').order_by('-id')
+    paginate_by = 16
+    template_name = "ordersuccessful.html"
 
 
 

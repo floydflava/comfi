@@ -7,6 +7,7 @@ from .views import (
     ItemDetailView,
     CheckoutView,
     HomeView,
+    OrderSuccessful,
     OrderSummaryView,
     PhoneView,
     SearchView,
@@ -34,6 +35,8 @@ urlpatterns = [
     path('remove-item-from-cart/<slug>/', remove_single_item_from_cart,
          name='remove-single-item-from-cart'),
     path('payment/<payment_option>/', PaymentView.as_view(), name='payment'),
+    path('ordersuccessful', OrderSuccessful.as_view(), name='ordersuccessful'),
+
     path('request-refund/', RequestRefundView.as_view(), name='request-refund'),
     url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}), 
     url(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
