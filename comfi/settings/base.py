@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'cloudinary',
     # 'allauth.socialaccount.providers.vk',  # if you need VK api
     'allauth.socialaccount.providers.facebook', # if you need FB api
-    'allauth.socialaccount.providers.google',
+    # 'allauth.socialaccount.providers.google',
     
 
 ]
@@ -119,43 +119,43 @@ ACCOUNT_SESSION_REMEMBER = True  # None by default (to ask 'Remember me?'). I wa
 
 
 
-SOCIALACCOUNT_PROVIDERS = {
-    'google':
+# SOCIALACCOUNT_PROVIDERS = {
+#     'google':
      
-        {
+#         {
          
-         'SCOPE': ['email', 'profile'],
-         'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
-         'INIT_PARAMS': {'cookie': True},
-         'FIELDS': [
-             'id',
-             'first_name',
-             'last_name',
-             'name',
-             'name_format',
-             'picture',
-             'short_name'
-         ],
-         'EXCHANGE_TOKEN': True,
-         'LOCALE_FUNC': lambda request: 'ru_RU',
-         'VERIFIED_EMAIL': False,
-         'VERSION': 'v7.0',
-         # you should fill in 'APP' only if you don't create a Facebook instance at /admin/socialaccount/socialapp/
-         'APP': {
-             'client_id': '320992521656-3okhuvq2id6unqeecal0m422pq3uq037.apps.googleusercontent.com',  # !!! THIS App ID
-             'secret': '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',  # !!! THIS App Secret
-             'key': ''
-                }
-         }
-}
-SITE_ID = 2
-LOGIN_REDIRECT_URL = '/'
+#          'SCOPE': ['email', 'profile'],
+#          'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+#          'INIT_PARAMS': {'cookie': True},
+#          'FIELDS': [
+#              'id',
+#              'first_name',
+#              'last_name',
+#              'name',
+#              'name_format',
+#              'picture',
+#              'short_name'
+#          ],
+#          'EXCHANGE_TOKEN': True,
+#          'LOCALE_FUNC': lambda request: 'ru_RU',
+#          'VERIFIED_EMAIL': False,
+#          'VERSION': 'v7.0',
+#          # you should fill in 'APP' only if you don't create a Facebook instance at /admin/socialaccount/socialapp/
+#          'APP': {
+#              'client_id': '320992521656-3okhuvq2id6unqeecal0m422pq3uq037.apps.googleusercontent.com',  # !!! THIS App ID
+#              'secret': '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',  # !!! THIS App Secret
+#              'key': ''
+#                 }
+#          }
+# }
+# SITE_ID = 2
+# LOGIN_REDIRECT_URL = '/'
 
-# Additional configuration settings
-SOCIALACCOUNT_QUERY_EMAIL = True
-ACCOUNT_LOGOUT_ON_GET= True
-ACCOUNT_UNIQUE_EMAIL = True
-ACCOUNT_EMAIL_REQUIRED = True
+# # Additional configuration settings
+# SOCIALACCOUNT_QUERY_EMAIL = True
+# ACCOUNT_LOGOUT_ON_GET= True
+# ACCOUNT_UNIQUE_EMAIL = True
+# ACCOUNT_EMAIL_REQUIRED = True
 
 # Static files (CSS, JavaScript, Images)
 
