@@ -106,18 +106,6 @@ SOCIALACCOUNT_PROVIDERS = {
          }
 }
 
-SITE_ID = 1
-ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False # a personal preference. True by default. I don't want users to be interrupted by logging in
-# ACCOUNT_AUTHENTICATION_METHOD = 'email'  # a personal preference. I don't want to add 'i don't remember my username' like they did at Nintendo, it's stupid
-
-ACCOUNT_LOGIN_ON_PASSWORD_RESET = True  # False by default
-ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True  # True by default
-# ACCOUNT_LOGOUT_REDIRECT_URL = '/login'
-ACCOUNT_USERNAME_BLACKLIST = ['suka', 'blyat',]  # :D
-ACCOUNT_USERNAME_MIN_LENGTH = 4  # a personal preference
-ACCOUNT_SESSION_REMEMBER = True  # None by default (to ask 'Remember me?'). I want the user to be always logged in
-
-
 
 # SOCIALACCOUNT_PROVIDERS = {
 #     'google':
@@ -178,6 +166,18 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend'
 )
+SITE_ID = 1
+ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False # a personal preference. True by default. I don't want users to be interrupted by logging in
+# ACCOUNT_AUTHENTICATION_METHOD = 'email'  # a personal preference. I don't want to add 'i don't remember my username' like they did at Nintendo, it's stupid
+
+ACCOUNT_LOGIN_ON_PASSWORD_RESET = True  # False by default
+ACCOUNT_LOGOUT_ON_PASSWORD_CHANGE = True  # True by default
+# ACCOUNT_LOGOUT_REDIRECT_URL = '/login'
+ACCOUNT_USERNAME_BLACKLIST = ['suka', 'blyat',]  # :D
+ACCOUNT_USERNAME_MIN_LENGTH = 4  # a personal preference
+ACCOUNT_SESSION_REMEMBER = True  # None by default (to ask 'Remember me?'). I want the user to be always logged in
+
+
 
 ACCOUNT_EMAIL_VERIFICATION = "none"
 LOGIN_REDIRECT_URL = '/'
