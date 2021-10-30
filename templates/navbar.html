@@ -1,19 +1,21 @@
 {% load cart_template_tags %}
 
+<div class="container-fluid">
 <!-- Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-light main-navigation active">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid justify-content-between">
     <!-- Left elements -->
     <button
       class="navbar-toggler"
       type="button"
-      
-      
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
       <i class="fas fa-bars"></i>
     </button>
-    <div class="overlay d-flex d-lg-none"></div>
-    <div class="order-lg-2 bg-light d-lg-flex w-100 pb-3 pb-lg-0 sidebar" id="navbarSupportedContent">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
     
      
 
@@ -21,10 +23,10 @@
       
     
     <!-- Collapsible wrapper -->
-    <ul class="navbar-nav mr-lg-auto mb-2 mb-lg-0">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
      
         
-      <li class="nav-item  me-3 me-lg-1">
+      <li class="nav-item me-3 me-lg-1">
         <a class="nav-link" href="/">
           <span><i class="fas fa-home fa-lg"></i></span>
           <!-- <span class="badge rounded-pill badge-notification bg-danger">1</span> -->
@@ -65,8 +67,12 @@
           <li>
             <a class="dropdown-item" href="{% url 'rope:phones' %}">Phone</a>
           </li>
-          <li><a class="dropdown-item" href="{% url 'rope:clothes' %}">Clothing</a></li>
-          
+          <li><a class="dropdown-item" href="#">Clothing</a></li>
+          <li><a class="dropdown-item" href="#">Footwear</a></li>
+          <li><a class="dropdown-item" href="#">Ladies</a></li>
+          <li><a class="dropdown-item" href="#">Men</a></li>
+          <li><a class="dropdown-item" href="#">New Arrivals</a></li>
+          <li><a class="dropdown-item" href="#">Sale</a></li>
         </ul>
         
       </div>
@@ -91,7 +97,7 @@
     <!-- Right elements -->
     {% if request.user.is_authenticated %}
     <ul class="navbar-nav flex-row">
-      <li class="nav-item px-3 px-lg-2">
+      <li class="nav-item me-3 me-lg-1">
         <a class="nav-link d-sm-flex align-items-sm-center" href="#">
           <i class="fas fa-user-alt"></i>
           <strong class="d-none d-sm-block ms-1">{{ request.user.username }}</strong>
@@ -99,7 +105,7 @@
         </a>
       </li>
      
-      <li class="nav-item dropdown ">
+      <li class="nav-item dropdown me-3 me-lg-1">
         <a
           class="nav-link dropdown-toggle hidden-arrow"
           href="#"
