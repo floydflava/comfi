@@ -317,6 +317,12 @@ class OrderSuccessful(ListView):
     paginate_by = 16
     template_name = "ordersuccessful.html"
 
+class Clothes(ListView):
+    model = Item
+    queryset = Item.objects.filter(category='OW').order_by('-id')
+    paginate_by = 16
+    template_name = "clothes.html"
+
 
 
 class OrderSummaryView(LoginRequiredMixin, View):

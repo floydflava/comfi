@@ -4,6 +4,7 @@ from django.conf.urls import url
 from django.conf import settings
 from .views import (
     Accessories,
+    Clothes,
     ItemDetailView,
     CheckoutView,
     HomeView,
@@ -36,6 +37,8 @@ urlpatterns = [
          name='remove-single-item-from-cart'),
     path('payment/<payment_option>/', PaymentView.as_view(), name='payment'),
     path('ordersuccessful', OrderSuccessful.as_view(), name='ordersuccessful'),
+    path('clothes', Clothes.as_view(), name='clothes'),
+
 
     path('request-refund/', RequestRefundView.as_view(), name='request-refund'),
     url(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}), 
