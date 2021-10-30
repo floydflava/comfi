@@ -3,6 +3,7 @@ from django.views.static import serve
 from django.conf.urls import url
 from django.conf import settings
 from .views import (
+    AboutUs,
     Accessories,
     Clothes,
     ItemDetailView,
@@ -38,6 +39,8 @@ urlpatterns = [
     path('payment/<payment_option>/', PaymentView.as_view(), name='payment'),
     path('ordersuccessful', OrderSuccessful.as_view(), name='ordersuccessful'),
     path('clothes', Clothes.as_view(), name='clothes'),
+    path('about_us', AboutUs.as_view(), name='about_us'),
+
 
 
     path('request-refund/', RequestRefundView.as_view(), name='request-refund'),

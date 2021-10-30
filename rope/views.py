@@ -323,6 +323,12 @@ class Clothes(ListView):
     paginate_by = 16
     template_name = "clothes.html"
 
+class AboutUs(ListView):
+    model = Item
+    
+    template_name = "about_us.html"
+
+
 
 
 class OrderSummaryView(LoginRequiredMixin, View):
