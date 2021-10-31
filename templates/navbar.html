@@ -1,7 +1,7 @@
 {% load cart_template_tags %}
 
 
-<<!--Main Navigation-->
+<!--Main Navigation-->
 <header>
   <!-- Sidebar -->
   <nav id="sidebarMenu" class="collapse d-lg-block sidebar collapse bg-white">
@@ -12,18 +12,18 @@
           class="list-group-item list-group-item-action py-2 ripple"
           aria-current="true"
         >
-          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Main dashboard</span>
+          <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Categories</span>
         </a>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple active">
-          <i class="fas fa-chart-area fa-fw me-3"></i><span>Webiste traffic</span>
+        <a href="{% url 'rope:accessories' %}" class="list-group-item list-group-item-action py-2 ripple active">
+          <i class="fas fa-chart-area fa-fw me-3"></i><span>Accessories</span>
         </a>
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-lock fa-fw me-3"></i><span>Password</span></a
+        <a href="{% url 'rope:phones' %}" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-lock fa-fw me-3"></i><span>Phones</span></a
         >
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple"
-          ><i class="fas fa-chart-line fa-fw me-3"></i><span>Analytics</span></a
+        <a href="{% url 'rope:clothes' %}" class="list-group-item list-group-item-action py-2 ripple"
+          ><i class="fas fa-chart-line fa-fw me-3"></i><span>Clothes</span></a
         >
-        <a href="#" class="list-group-item list-group-item-action py-2 ripple">
+        <!-- <a href="#" class="list-group-item list-group-item-action py-2 ripple">
           <i class="fas fa-chart-pie fa-fw me-3"></i><span>SEO</span>
         </a>
         <a href="#" class="list-group-item list-group-item-action py-2 ripple"
@@ -43,7 +43,7 @@
         >
         <a href="#" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-money-bill fa-fw me-3"></i><span>Sales</span></a
-        >
+        > -->
       </div>
     </div>
   </nav>
@@ -99,23 +99,35 @@
             data-mdb-toggle="dropdown"
             aria-expanded="false"
           >
-            <i class="fas fa-bell"></i>
-            <span class="badge rounded-pill badge-notification bg-danger">1</span>
+            <i class="fas fa-sign-in-alt"></i>
+            Login/Signin
           </a>
           <ul
             class="dropdown-menu dropdown-menu-end"
             aria-labelledby="navbarDropdownMenuLink"
           >
+          {% if request.user.is_authenticated %}
             <li>
-              <a class="dropdown-item" href="#">Some news</a>
+              <a class="dropdown-item" href="{% url 'rope:order-summary' %}">
+                <!-- <span class="badge red z-depth-1 mr-1"> {{ request.user|cart_item_count }} </span> -->
+                <span class="badge rounded-pill badge-notification bg-danger">{{ request.user|cart_item_count }} </span>
+                <i class="fas fa-shopping-cart"></i>
+                Cart
+              </a>
+            </li>
+          {% else %}
+            <li>
+              <a class="dropdown-item" href="{% url 'account_login' %}">Login
+                <span><i class="fas fa-sign-in-alt"></i></span>
+              </a>
             </li>
             <li>
-              <a class="dropdown-item" href="#">Another news</a>
-            </li>
-            <li>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="{% url 'account_signup' %}">Signup
+                <span><i class="fas fa-user-plus"></i></span>
+              </a>
             </li>
           </ul>
+          {% endif %}
         </li>
 
         <!-- Icon -->
@@ -177,7 +189,7 @@
             </li>
           </ul>
         </li>
-
+        {% if request.user.is_authenticated %}
         <!-- Avatar -->
         <li class="nav-item dropdown">
           <a
@@ -207,10 +219,11 @@
               <a class="dropdown-item" href="#">Settings</a>
             </li>
             <li>
-              <a class="dropdown-item" href="#">Logout</a>
+              <a class="dropdown-item" href="{% url 'account_logout' %}">Logout</a>
             </li>
           </ul>
         </li>
+        {% endif %}
       </ul>
     </div>
     <!-- Container wrapper -->
@@ -220,9 +233,3 @@
 <!--Main Navigation-->
 
 <!--Main layout-->
-<main style="margin-top: 58px;">
-  <div class="container pt-4"></div>
-</main>
-<!--Main layout-->
-
-
