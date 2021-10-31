@@ -328,6 +328,17 @@ class AboutUs(ListView):
     
     template_name = "about_us.html"
 
+class PrivacyPolicy(ListView):
+    model = Item
+    
+    template_name = "privacy-policy.html"
+
+class TermsConditions(ListView):
+    model = Item
+    
+    template_name = "termsandconditions.html"
+
+
 
 
 

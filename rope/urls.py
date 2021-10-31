@@ -12,7 +12,9 @@ from .views import (
     OrderSuccessful,
     OrderSummaryView,
     PhoneView,
+    PrivacyPolicy,
     SearchView,
+    TermsConditions,
     add_to_cart,
     remove_from_cart,
     remove_single_item_from_cart,
@@ -40,6 +42,9 @@ urlpatterns = [
     path('ordersuccessful', OrderSuccessful.as_view(), name='ordersuccessful'),
     path('clothes', Clothes.as_view(), name='clothes'),
     path('about_us', AboutUs.as_view(), name='about_us'),
+    path('privacy-policy', PrivacyPolicy.as_view(), name='privacy-policy'),
+    path('termsandconditions', TermsConditions.as_view(), name='termsandconditions'),
+
 
 
 
