@@ -5,6 +5,7 @@ from django.conf import settings
 from .views import (
     AboutUs,
     Accessories,
+    CardPaymentView,
     Clothes,
     ItemDetailView,
     CheckoutView,
@@ -39,6 +40,8 @@ urlpatterns = [
     path('remove-item-from-cart/<slug>/', remove_single_item_from_cart,
          name='remove-single-item-from-cart'),
     path('payment/<payment_option>/', PaymentView.as_view(), name='payment'),
+    path('cardpayment/<payment_option>/', CardPaymentView.as_view(), name='cardpayment'),
+
     path('ordersuccessful', OrderSuccessful.as_view(), name='ordersuccessful'),
     path('clothes', Clothes.as_view(), name='clothes'),
     path('about_us', AboutUs.as_view(), name='about_us'),
