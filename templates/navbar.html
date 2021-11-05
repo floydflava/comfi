@@ -4,18 +4,19 @@
 <!--Main Navigation-->
 <header>
   <!-- Sidebar -->
-  <nav id="sidebarMenu" class="collapse  d-lg-block sidebar collapse bg-white">
+  <nav id="sidebarMenu" class="collapse  d-lg-block sidebar-expand-lg collapse bg-white ">
     <div class="position-sticky">
       <div class="list-group list-group-flush mx-2 mt-4">
         <a
           href="#"
           class="list-group-item top-fixed list-group-item-action py-2 ripple"
           aria-current="false"
-          collapse="false"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
         >
           <i class="fas fa-tachometer-alt fa-fw me-3"></i><span>Categories</span>
         </a>
-        <a href="{% url 'rope:accessories' %}" class="list-group-item list-group-item-action py-2 ripple">
+        <!-- <a href="{% url 'rope:accessories' %}" class="list-group-item list-group-item-action py-2 ripple">
           <i class="fas fa-chart-area fa-fw me-3"></i><span>Accessories</span>
         </a>
         <a href="{% url 'rope:phones' %}" class="list-group-item list-group-item-action py-2 ripple"
@@ -23,7 +24,7 @@
         >
         <a href="{% url 'rope:clothes' %}" class="list-group-item list-group-item-action py-2 ripple"
           ><i class="fas fa-chart-line fa-fw me-3"></i><span>Clothes</span></a
-        >
+        > -->
         
       </div>
     </div>
@@ -34,6 +35,7 @@
   <nav id="main-navbar" class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
     <!-- Container wrapper -->
     <div class="container-fluid">
+      
       <!-- Toggle button -->
       <button
         class="navbar-toggler"
@@ -58,6 +60,7 @@
       />
       
       </a>
+      
       <!-- Search form -->
       <form class="d-none d-md-flex input-group w-auto my-auto">
         <input
@@ -69,10 +72,47 @@
         />
         <span class="input-group-text border-0"><i class="fas fa-search"></i></span>
       </form>
-
+        
       <!-- Right links -->
       <ul class="navbar-nav ms-auto d-flex flex-row">
         <!-- Notification dropdown -->
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle hidden-arrow d-flex align-items-center"
+            href="#"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-mdb-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <img
+              
+              class="rounded-circle fas fa-user-tie"
+              height="22"
+              alt=""
+              loading="lazy"
+            />
+            <i class="fas fa-tachometer-alt fa-fw me-3 "></i><span>Categories</span>
+            <i class="fas dropdown-toggle"></i>
+          </a>
+          <ul
+            class="dropdown-menu dropdown-menu-end"
+            aria-labelledby="navbarDropdownMenuLink"
+          >
+            <li>
+              <a class="dropdown-item" href="{% url 'rope:accessories' %}">
+                <i class="fas fa-chart-area fa-fw me-3"></i><span>Accessories</span></a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'rope:phones' %}">
+                <i class="fas fa-phone fa-fw me-3"></i><span>Phones</span></a>
+            </li>
+            <li>
+              <a class="dropdown-item" href="{% url 'rope:clothes' %}">
+                <i class="fas fa-chart-line fa-fw me-3"></i><span>Clothes</span></a>
+            </li>
+          </ul>
+        </li>
         
       {% if request.user.is_authenticated %}
       <li class="nav-item">
@@ -84,7 +124,9 @@
         </a>
       </li>
       {% else %}
+      
       <!-- Icon -->
+      
       <li class="nav-item me-3 me-lg-0">
         <a class="nav-link" href="{% url 'account_login' %}">Login
           <span><i class="fas fa-sign-in-alt"></i></span>
@@ -96,6 +138,7 @@
           <span><i class="fas fa-user-plus"></i></span>
         </a>
       </li>
+      
       {% endif %}
 
     {% if request.user.is_authenticated %}
