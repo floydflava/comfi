@@ -49,7 +49,7 @@ class CheckoutView(View):
                 'form': form,
                 'couponform': CouponForm(),
                 'order': order,
-                'DISPLAY_COUPON_FORM': True
+                'DISPLAY_COUPON_FORM': False
             }
 
             shipping_address_qs = Address.objects.filter(
