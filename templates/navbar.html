@@ -28,7 +28,22 @@
         <div class="collapse navbar-collapse" id="navbarsExampleDefault">
             <ul class="navbar-nav ">
             {% if request.user.is_authenticated %}
+            <ul class="navbar-nav flex-row d-none d-md-flex">
                 
+                <li class="nav-item me-3 me-lg-1 ">
+                    <a href="{% url 'rope:order-summary' %}" class="nav-link" data-class="fixed-left">
+                    <span class="badge rounded-pill badge-notification bg-danger">{{ request.user|cart_item_count }} </span>
+                    <span class="fas fa-shopping-cart"></span>
+
+                    Cart
+                    </a>
+                </li>
+                <li class="nav-item me-3 me-lg-1">
+                    <a href="{% url 'account_logout' %}" class="nav-link" data-class="fixed-left">
+                        <i class="fa fa-arrow-left"></i>
+                        Logout
+                    </a>
+                </li>
                 {% else %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'account_login' %}">Login
@@ -55,22 +70,7 @@
             </ul>
             {% if request.user.is_authenticated %}
 
-            <ul class="navbar-nav flex-row d-none d-md-flex">
-                
-                <li class="nav-item me-3 me-lg-1 ">
-                    <a href="{% url 'rope:order-summary' %}" class="nav-link" data-class="fixed-left">
-                    <span class="badge rounded-pill badge-notification bg-danger">{{ request.user|cart_item_count }} </span>
-                    <span class="fas fa-shopping-cart"></span>
-
-                    Cart
-                    </a>
-                </li>
-                <li class="nav-item me-3 me-lg-1">
-                    <a href="{% url 'account_logout' %}" class="nav-link" data-class="fixed-left">
-                        <i class="fa fa-arrow-left"></i>
-                        Logout
-                    </a>
-                </li>
+            
                 <!-- <li class="nav-item">
                     <a class="nav-link" data-class="fixed-top">
                         <i class="fa fa-arrow-up"></i>
