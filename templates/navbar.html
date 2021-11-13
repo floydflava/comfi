@@ -56,11 +56,14 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{% url 'account_logout' %}" class="nav-link" data-class="fixed-left">
-                            <i class="fa fa-arrow-left"></i>
-                            <span class="text-light ">Logout</span>
-
-                        </a>
+                        <form method="post" action="{% url 'account_logout' %}">
+                            {% csrf_token %}
+                            {% if redirect_field_value %}
+                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}"/>
+                            {% endif %}
+                            <button class='btn btn-outline-info btn-rounded' type="submit">signout</button>
+              
+                          </form>
                     </li>
                 {% else%}   
                     <li class="nav-item">

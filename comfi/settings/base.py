@@ -167,6 +167,11 @@ AUTHENTICATION_BACKENDS = (
     'allauth.account.auth_backends.AuthenticationBackend'
 )
 
+ACCOUNT_FORMS = {
+'signup': 'rope.forms.CustomSignupForm',
+}
+# ACCOUNT_ADAPTER = 'rope.adapter.UsernameMaxAdapter'
+
 ACCOUNT_AUTHENTICATED_LOGIN_REDIRECTS = False # a personal preference. True by default. I don't want users to be interrupted by logging in
 # ACCOUNT_AUTHENTICATION_METHOD = 'email'  # a personal preference. I don't want to add 'i don't remember my username' like they did at Nintendo, it's stupid
 

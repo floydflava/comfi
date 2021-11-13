@@ -168,8 +168,11 @@ class Address(models.Model):
                              on_delete=models.CASCADE)
     street_address = models.CharField(max_length=100)
     apartment_address = models.CharField(max_length=100)
+    user_number = models.CharField(max_length=10,default=True,null=True, blank=True)
     country = CountryField(multiple=False)
     zip = models.CharField(max_length=100)
+   
+
     address_type = models.CharField(max_length=1, choices=ADDRESS_CHOICES)
     default = models.BooleanField(default=False)
 
