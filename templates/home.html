@@ -30,15 +30,19 @@
                   <!-- <div class="mask rgba-white-slight"></div> -->
                 </a>
               </div>
-              <div class="card-body ">
-                <a href="" class="warning-text">
-                  <h6>{{ item.get_category_display }}</h6>
-                </a>
+              <div class="card-body">
+                <div class="text-warning">
+                  <a href="" class="warning-text">
+                    <h6>{{ item.get_category_display }}</h6>
+                  </a>
+                </div>
+ 
                 <p>
-                    <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.title }}
+                    <a href="{{ item.get_absolute_url }}" class="dark-warning-text">{{ item.title }}
                       <!-- <span class="badge badge-pill {{ item.get_label_display }}-color">NEW</span> -->
-                      <span class="badge badge-pill badge-notification{{ item.get_label_display }} bg-danger">NEW </span>
+                      <span class="badge badge-pill badge-notification{{ item.get_label_display }} bg-warning">NEW </span>
                     </a>    
+                    
                 </p>
                 <p class="gray-text">
                   {% if item.discount_price %}
@@ -51,11 +55,16 @@
                   {% endif %}
               </p>
               
-              <button type="button" class="btn btn-outline-primary btn-rounded">
+              <button type="button" class="btn btn-outline-primary btn-rounded warning-text">
                 <a href="{{ item.get_absolute_url }}">
                   <div class="mask rgba-white-slight"></div>
                 </a>
-                Start Order</button>
+               <div class="text-warning">
+                Start Order
+               </div>
+               
+ 
+              </button>
               </div>
 
             </div>
