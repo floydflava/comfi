@@ -8,7 +8,7 @@
   <!-- Carousel wrapper -->
   
   
-  <div class=" container-xxl ">
+  <div class=" col-sm-12 raw-mb-2 ">
     
     
       <!--Section: Products v.3-->
@@ -18,7 +18,7 @@
         <div class="row wow fadeIn">
 
           {% for item in object_list %}
-          <div class="card text-center xm-auto  shadow-1"  style="width: 11.3rem;">
+          <div class="card text-center xm-auto  shadow-1"  style="width: 11.5rem;">
             <a href="{{ item.get_absolute_url }}">
             <img class="card-img-top"  src="{{ item.image.url }}"  alt="Card image cap">
 
@@ -50,7 +50,7 @@
           {% endfor %}
             
      </div>
-  </div>
+
     </div>
           
             
