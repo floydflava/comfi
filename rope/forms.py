@@ -17,7 +17,7 @@ PAYMENT_CHOICES = (
 class CheckoutForm(forms.Form):
     shipping_address = forms.CharField(required=False)
     shipping_address2 = forms.CharField(required=False)
-    phone_number = forms.CharField(max_length=10)
+    phone_number = forms.CharField(required=True,max_length=10)
 
     shipping_country = CountryField(blank_label='(select country)').formfield(
         required=False,
