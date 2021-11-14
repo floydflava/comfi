@@ -23,16 +23,16 @@
 
            
 
-            <div class="d-grid col-4 mx-auto">
+            <div class="d-grid gap-2 col-4 mx-auto">
                 <button class="btn btn-primary" type="button">
-                    <a href="{% provider_login_url 'facebook' %}">
-                    </a>
-                    <i class="fab fa-facebook"></i>  
-                    LogIn With Facebook
-            </button>
-                
-
-          </div>
+                  <a href="{% provider_login_url 'facebook' %}">
+                    <div class="mask rgba-white-slight"></div>
+                  </a>
+                  <i class="fab fa-facebook"></i>  
+                  Sigin With Facebook
+                </button>
+              
+              </div>
 
           {% include "socialaccount/snippets/login_extra.html" %}
 
