@@ -428,18 +428,18 @@ class CardPaymentView(View):
 class HomeView(ListView):
     model = Item
     queryset = Item.objects.filter(label='D').order_by('-id')  
-    paginate_by = 16
+    paginate_by = 18
     template_name = "home.html"
    
 class PhoneView(ListView):
     model = Item
     queryset = Item.objects.filter(category='P').order_by('-id')    
-    paginate_by = 16
+    paginate_by = 18
     template_name = "phones.html"
 
 class SearchView(ListView):
     model = Item   
-    paginate_by = 16
+    paginate_by = 18
     template_name = "search.html"
     def get_queryset(self): # new
            
