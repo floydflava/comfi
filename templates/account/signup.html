@@ -6,15 +6,18 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-  <main>
-    <div class="container">
-      <section class="mb-4">
-        <div class="row wow fadeIn">
-          <div class='col-6 offset-3'>
-            <h1>{% trans "Sign Up" %}</h1>
+<main>
+<div class="container wow fadeIn">
+<h2 class="my-5 h2 text-center">{% trans "Sign Up" %}</h2>
+  <div class="row">
+    <div class='col-6 offset-3'>
+      <div class="card " >
+        <form method="POST" class="card-body">
+          
             {% get_providers as socialaccount_providers %}
 
             {% if socialaccount_providers %}
+         
             <p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
           
             <p>
@@ -38,9 +41,11 @@
               <button class='btn btn-primary' type="submit">{% trans "Sign Up" %} &raquo;</button>
             </form>
             {% endif %}
-          </div>
-        </div>
-      </section>
+          </div>  
+        </form>
+      </div>
     </div>
-  </main>
+  </div>
+</div> 
+</main>
 {% endblock %}

@@ -17,11 +17,11 @@
             </a>
             <div class="card-body">
               <h5 class="card-title">{{ item.get_category_display }}</h5>
-              <p class="card-text">
+              <h6 class="card-text">
                 <span class="badge badge-pill badge-notification{{ item.get_label_display }} bg-warning">NEW </span>
 
-                {{ item.title }}</p>
-              <p class="card-text">
+                {{ item.title }}</h6>
+              <h6 class="card-text">
                 {% if item.discount_price %}
                   <p class="mr-1">
                     <del><strong>R{{ item.price }}</strong></del>
@@ -30,7 +30,7 @@
                   {% else %}
                   <span>R{{ item.price }}</span>
                   {% endif %}
-                </p>
+                </h6>
               <a href="{{ item.get_absolute_url }}" class="btn btn-outline-primary btn-rounded warning-text"">
                 <div class="text-warning">
                   Start Order
