@@ -2,16 +2,14 @@
 
 {% block content %}
 
-
   <main class="mt-5 pt-4">
-    
     <div class="container dark-grey-text mt-5">
 
       <!--Grid row-->
       <div class="row wow fadeIn">
 
         <!--Grid column-->
-        <div class="col-md-3 mb-2">
+        <div class="col-md-6 mb-4">
 
           <img src="{{ item.image.url }}" class="img-fluid" alt="">
 
@@ -19,12 +17,12 @@
         <!--Grid column-->
 
         <!--Grid column-->
-        <div class="col-md-4 mb-4">
+        <div class="col-md-6 mb-4">
 
           <!--Content-->
           <div class="p-4">
 
-            <div class="mb-2">
+            <div class="mb-3">
               <a href="">
                 <span class="badge purple mr-1">{{ object.get_category_display }}</span>
               </a>
@@ -48,15 +46,14 @@
             {% comment %} <form class="d-flex justify-content-left">
               <!-- Default input -->
               <input type="number" value="1" aria-label="Search" class="form-control" style="width: 100px">
-              <button class="btn btn-outline-primary " type="submit">
+              <button class="btn btn-primary btn-md my-0 p" type="submit">
                 Add to cart
                 <i class="fas fa-shopping-cart ml-1"></i>
               </button>
 
             </form> {% endcomment %}
-            <a href="{{ object.get_add_to_cart_url }}" class="btn btn-outline-primary btn-rounded warning-text ">
+            <a href="{{ object.get_add_to_cart_url }}" class="btn btn-primary btn-md ">
               Add to cart
-              <i class="fas fa-shopping-cart ml-1"></i>
             </a>
               <!-- <i class="fas fa-shopping-cart ml-1"></i>
             </a>
@@ -74,7 +71,7 @@
       <!--Grid row-->
 
       <hr>
-  </div>
+
       <!--Grid row-->
       <div class="row d-flex justify-content-center wow fadeIn">
 
