@@ -19,7 +19,10 @@
 
           {% for item in object_list %}
           <div class="card text-center xm-auto  shadow-1"  style="width: 12rem;">
-            <img class="card-img-top" src="{{ item.image.url }}" alt="Card image cap">
+            <a href="{{ item.get_absolute_url }}">
+            <img class="card-img-top"  src="{{ item.image.url }}"  alt="Card image cap">
+
+            </a>
             <div class="card-body">
               <h5 class="card-title">{{ item.get_category_display }}</h5>
               <p class="card-text">
@@ -36,7 +39,7 @@
                   <span>R{{ item.price }}</span>
                   {% endif %}
                 </p>
-              <a href="#" class="btn btn-outline-primary btn-rounded warning-text"">
+              <a href="{{ item.get_absolute_url }}" class="btn btn-outline-primary btn-rounded warning-text"">
                 <div class="text-warning">
                   Start Order
                  </div>
