@@ -19,15 +19,17 @@
 
           {% for item in object_list %}
           <div class="card text-center xm-auto  shadow-1"  style="width: 12rem;">
-            <a href="{{ item.get_absolute_url }}"></a>
+            <a href="{{ item.get_absolute_url }}">
             <img class="card-img-top"  src="{{ item.image.url }}"  alt="Card image cap">
+
+            </a>
             <div class="card-body">
-              <h5 class="card-title">{{ item.get_category_display }}</h5>
+              <h5 class="card-title"></h5>
               <p class="card-text">
                 <span class="badge badge-pill badge-notification{{ item.get_label_display }} bg-warning">NEW </span>
 
                 {{ item.title }}</p>
-              <p class="card-text">Price 
+              <p class="card-text">
                 {% if item.discount_price %}
                   <p class="mr-1">
                     <del><strong>R{{ item.price }}</strong></del>
