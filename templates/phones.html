@@ -9,28 +9,31 @@
       <div class="row wow fadeIn">
 
         {% for item in object_list %}
-        <div class="col-md-2 raw-mb-2">
+        <div class="col-sm-2 raw-mb-2">
 
 
-          <div class="card text-center  shadow-0 " style="max-width: 380px;">
+          <div class="card text-center xm-auto  shadow-1-strong " style="max-width: 380px;">
 
             <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-              {% comment %} <img src="https://mdbootstrap.com/img/Photos/Horizontal/E-commerce/Vertical/12.jpg" class="card-img-top" {% endcomment %}
-              <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div>
+              <!-- <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div> -->
               <img src="{{ item.image.url }}" class="card-img-top">
               <a href="{{ item.get_absolute_url }}">
-                <div class="mask rgba-white-slight"></div>
+                <!-- <div class="mask rgba-white-slight"></div> -->
               </a>
             </div>
-            <div class="card-body text-center">
-              <a href="" class="blue-text">
-                <h5>{{ item.get_category_display }}</h5>
-              </a>
+            <div class="card-body">
+              <div class="text-warning">
+                <a href="" class="warning-text">
+                  <h6>{{ item.get_category_display }}</h6>
+                </a>
+              </div>
+
               <p>
-                  <a href="{{ item.get_absolute_url }}" class="dark-grey-text">{{ item.title }}
+                  <a href="{{ item.get_absolute_url }}" class="dark-warning-text">{{ item.title }}
                     <!-- <span class="badge badge-pill {{ item.get_label_display }}-color">NEW</span> -->
-                    <span class="badge badge-pill badge-notification{{ item.get_label_display }} bg-danger">NEW </span>
+                    <span class="badge badge-pill badge-notification{{ item.get_label_display }} bg-warning">NEW </span>
                   </a>    
+                  
               </p>
               <p class="gray-text">
                 {% if item.discount_price %}
@@ -43,11 +46,16 @@
                 {% endif %}
             </p>
             
-            <button type="button" class="btn btn-primary" >
+            <button type="button" class="btn btn-outline-primary btn-rounded warning-text">
               <a href="{{ item.get_absolute_url }}">
                 <div class="mask rgba-white-slight"></div>
               </a>
-              Start Order</button>
+             <div class="text-warning">
+              Start Order
+             </div>
+             
+
+            </button>
             </div>
 
           </div>
