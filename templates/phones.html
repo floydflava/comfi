@@ -15,7 +15,8 @@
             <img class="card-img-top"  src="{{ item.image.url }}"  alt="Card image cap">
 
             </a>
-            <div class="card-body"></h5>
+            <div class="card-body">
+              <h5 class="card-title">{{ item.get_category_display }}</h5>
               <p class="card-text">
                 <span class="badge badge-pill badge-notification{{ item.get_label_display }} bg-warning">NEW </span>
 
