@@ -4,67 +4,42 @@
 
 <div class=" col-md-12 mb-3">
     <!--Section: Products v.3-->
-    <section class="text-center mb-2">
+    
 
       <div class="row wow fadeIn">
 
         {% for item in object_list %}
-        <div class="col-sm-2 raw-mb-2">
+          <div class="card text-center xm-auto  shadow-1"  style="width: 8.5rem;">
+            <a href="{{ item.get_absolute_url }}">
+            <img class="card-img-top"  src="{{ item.image.url }}"  alt="Card image cap">
 
-
-          <div class="card text-center xm-auto  shadow-1-strong " style="max-width: 380px;">
-
-            <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
-              <!-- <div class="mask" style="background-color: rgba(251, 251, 251, 0.15)"></div> -->
-              <img src="{{ item.image.url }}" class="card-img-top">
-              <a href="{{ item.get_absolute_url }}">
-                <!-- <div class="mask rgba-white-slight"></div> -->
-              </a>
-            </div>
+            </a>
             <div class="card-body">
-              <div class="text-warning">
-                <a href="" class="warning-text">
-                  <h6>{{ item.get_category_display }}</h6>
-                </a>
-              </div>
+              <h5 class="card-title"></h5>
+              <p class="card-text">
+                <span class="badge badge-pill badge-notification{{ item.get_label_display }} bg-warning">NEW </span>
 
-              <p>
-                  <a href="{{ item.get_absolute_url }}" class="dark-warning-text">{{ item.title }}
-                    <!-- <span class="badge badge-pill {{ item.get_label_display }}-color">NEW</span> -->
-                    <span class="badge badge-pill badge-notification{{ item.get_label_display }} bg-warning">NEW </span>
-                  </a>    
-                  
-              </p>
-              <p class="gray-text">
+                {{ item.title }}</p>
+              <p class="card-text">
                 {% if item.discount_price %}
-                <p class="mr-1">
-                  <del><strong>R{{ item.price }}</strong></del>
+                  <p class="mr-1">
+                    <del><strong>R{{ item.price }}</strong></del>
+                  </p>
+                  <p><strong>R{{ item.discount_price }}</strong></p>
+                  {% else %}
+                  <span>R{{ item.price }}</span>
+                  {% endif %}
                 </p>
-                <p><strong>R{{ item.discount_price }}</strong></p>
-                {% else %}
-                <span>R{{ item.price }}</span>
-                {% endif %}
-            </p>
-            
-            <button type="button" class="btn btn-outline-primary btn-rounded warning-text">
-              <a href="{{ item.get_absolute_url }}">
-                <div class="mask rgba-white-slight"></div>
+              <a href="{{ item.get_absolute_url }}" class="btn btn-outline-primary btn-rounded warning-text">
+                <div class="text-warning">
+                  Start Order
+                 </div>
+                  
               </a>
-             <div class="text-warning">
-              Start Order
-             </div>
-             
-
-            </button>
             </div>
-
           </div>
-
-        </div>
-        {% endfor %}
-          
-      </ul>
-    </nav>
+          {% endfor %}
+      </div>  
     
 </div>
   
