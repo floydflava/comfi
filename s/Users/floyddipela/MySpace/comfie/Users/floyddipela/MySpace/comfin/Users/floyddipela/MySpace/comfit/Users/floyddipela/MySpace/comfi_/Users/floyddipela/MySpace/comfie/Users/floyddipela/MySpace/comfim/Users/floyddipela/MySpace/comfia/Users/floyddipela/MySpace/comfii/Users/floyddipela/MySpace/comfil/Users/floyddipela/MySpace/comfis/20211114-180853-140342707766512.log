@@ -1,0 +1,22 @@
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Subject: [https://comfiapp.herokuapp.com] Password Reset E-mail
+From: webmaster@localhost
+To: floydphuti911@gmail.com
+Date: Sun, 14 Nov 2021 18:08:53 -0000
+Message-ID: 
+ <163691333395.6363.1228354750730433504@115.43.168.192.in-addr.arpa>
+
+Hello from https://comfiapp.herokuapp.com!
+
+You're receiving this e-mail because you or someone else has requested a password for your user account.
+It can be safely ignored if you did not request a password reset. Click the link below to reset your password.
+
+http://127.0.0.1:8000/accounts/password/reset/key/2-5vq-b166bb61d47defe8f54d/
+
+In case you forgot, your username is floyd.
+
+Thank you for using https://comfiapp.herokuapp.com!
+https://comfiapp.herokuapp.com
+-------------------------------------------------------------------------------

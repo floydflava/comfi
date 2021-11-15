@@ -5,7 +5,15 @@ from allauth.account.forms import SignupForm
 from allauth.account.adapter import DefaultAccountAdapter
 from django.forms import ValidationError
 from datetime import date
-from .models import UserProfile
+from .models import UserProfile,models
+from allauth.account.views import PasswordResetView
+
+from django.conf import settings
+from django.dispatch import receiver
+from django.http import HttpRequest
+from django.middleware.csrf import get_token
+
+
 
 PAYMENT_CHOICES = (
     # ('S', 'Stripe'),
@@ -88,19 +96,24 @@ class CustomSignupForm(SignupForm):
         UserProfile.user.save()
         return  UserProfile.user
 
-class RestrictEmailAdapter(DefaultAccountAdapter):
-    def clean_email(self, email):
-        RestrictedList = ['Your restricted list goes here.']
-        if email in RestrictedList:
-            raise ValidationError('You are restricted from registering.\
-                                                  Please contact admin.')
-        return email
+@receiver(models.signals.post_save, sender=settings.AUTH_USER_MODEL)
+def send_reset_password_email(sender, instance, created, **kwargs):
 
-class UsernameMaxAdapter(DefaultAccountAdapter):
-    def clean_username(self, username):
-        if len(username) > 'Your Max Size':
-            raise ValidationError('Please enter a username value\
-                                      less than the current one')
-         
-        # For other default validations.
-        return DefaultAccountAdapter.clean_username(self, username)
+    if created:
+
+        # First create a post request to pass to the view
+        request = HttpRequest()
+        request.method = 'POST'
+
+        # add the absolute url to be be included in email
+        if settings.DEBUG:
+            request.META['HTTP_HOST'] = '127.0.0.1:8000'
+        else:
+            request.META['HTTP_HOST'] = 'www.comfiapp.heroku.com'
+
+        # pass the post form data
+        request.POST = {
+            'email': instance.email,
+            'csrfmiddlewaretoken': get_token(HttpRequest())
+        }
+        PasswordResetView.as_view()(request)  # email will be sent!

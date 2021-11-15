@@ -187,6 +187,10 @@ SITE_ID = 1
 ACCOUNT_EMAIL_VERIFICATION = "none"
 LOGIN_REDIRECT_URL = '/'
 
+EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+EMAIL_FILE_PATH = os.path.join(BASE_DIR,('sent_emails'))
+
+
 # CRISPY FORMS
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
